@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class DoctorController extends Controller
 {
-    // Prikaz svih doktora
+
     public function index()
     {
         $doctors = Doctor::all();
         return view('lista_usluga', compact('doctors'));
     }
 
-    // Prikaz forme za kreiranje doktora (samo za admina)
+
     public function create()
     {
         if (!Auth::check() || !Auth::user()->role || Auth::user()->role->name !== 'Admin') {
@@ -25,7 +25,7 @@ class DoctorController extends Controller
         return view('doctors-create');
     }
 
-    // Čuvanje novog doktora u bazu (samo admin)
+
     public function store(Request $request)
     {
         if (!Auth::check() || !Auth::user()->role || Auth::user()->role->name !== 'Admin') {
@@ -45,7 +45,7 @@ class DoctorController extends Controller
 
 
 
-    // Forma za izmenu doktora (samo admin)
+
     public function edit($id)
     {
         if (!Auth::check() || !Auth::user()->role || Auth::user()->role->name !== 'Admin') {
@@ -56,7 +56,7 @@ class DoctorController extends Controller
         return view('doctors-edit', compact('doctor'));
     }
 
-    // Ažuriranje doktora (samo admin)
+
     public function update(Request $request, $id)
     {
         if (!Auth::check() || !Auth::user()->role || Auth::user()->role->name !== 'Admin') {
@@ -75,7 +75,7 @@ class DoctorController extends Controller
         return redirect()->route('lista_usluga')->with('success', 'Doktor je uspešno izmenjen.');
     }
 
-    // Brisanje doktora (samo admin)
+
     public function destroy($id)
     {
         if (!Auth::check() || !Auth::user()->role || Auth::user()->role->name !== 'Admin') {

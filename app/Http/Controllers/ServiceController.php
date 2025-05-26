@@ -30,7 +30,7 @@ class ServiceController extends Controller
         return view('services-create');
     }
 
-    // Čuvanje nove usluge u bazu
+   
     public function store(Request $request)
     {
         $request->validate([

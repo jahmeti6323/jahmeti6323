@@ -11,7 +11,7 @@ use App\Models\Patien;
 
 class TerminController extends Controller
 {
-    // Za korisnike: prikaz dostupnih usluga za zakazivanje termina
+   
     public function index()
     {
         $usluge = Service::all();

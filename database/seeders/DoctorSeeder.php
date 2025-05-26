@@ -7,9 +7,7 @@ use App\Models\Doctor;
 
 class DoctorSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+    
     public function run(): void
     {
         Doctor::create([
